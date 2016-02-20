@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="es" ng-app="app">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+  
+  
+  <title>GeolocationFleet.com</title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://file.myfontastic.com/SXmu7ZMXNkJMhfCGAUouZT/icons.css" rel="stylesheet">
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+   <link rel="stylesheet" type="text/css" href="css/index.css" />
+</head>
+<body   >
+  
+<!--    Cabezera-->
+ <div class="navbar-fixed">
+  <nav class="white" role="navigation"  ng-controller="NavCtrl">
+     <div class="nav-wrapper container ">
+           
+<!--       <a id="logo-container" ng-href="#/" class="brand-logo">Montoya</a>-->
+ 
+          <a id="logo-container" ng-href="#/main" class="brand-logo"><span class="badge" style="color:green">10 &nbsp</span><i class="icon-icollevar" ></i></a> 
+                               <a id="logo-container"  class="brand-logo"><i class="icon-icollevar" style="margin-left:10px" ng-href="#/main"></i></a>   
+                            
+           <a id="logo-container"  class="brand-logo"><i class="icon-icollevar" style="margin-left:10px" ng-href="#/main"></i></a>
+<!--Esta es la izquierda del sidenav-->
+
+      <ul id="nav-mobile" class="side-nav">
+       <!--En caso de que la sesionIniciada() devuelve true en el primero se oculta y en el segundo se muestra-->
+                 <li class="no-padding" ng-hide="sesionIniciada()">
+                                <ul class="collapsible collapsible-accordion">
+                                  <li>
+                                    
+                                    <a  class="collapsible-header">Usuarios<i class="mdi-navigation-arrow-drop-down"></i></a>
+                                    
+                                    
+                                    <div class="collapsible-body">
+                                      <ul>
+                                   
+                                        <li><a ng-href="#/entrar">Iniciar Sesión</a></li>
+                                        <li><a ng-href="#/registrarse">Registrarse</a></li>
+                                        
+                                       
+                                        
+                                      </ul>
+                                    </div>
+                                  </li>
+                                </ul>
+                  </li>
+               
+               
+                 <li class="no-padding"  ng-show="sesionIniciada()">
+                                <ul class="collapsible collapsible-accordion">
+                                  <li>
+                                    <a  ng-show="sesionIniciada()" class="collapsible-header">{{usuarioActual.profile.nombre}}<i class="mdi-navigation-arrow-drop-down"></i></a>
+                                  
+                                    
+                                    
+                                    <div class="collapsible-body">
+                                      <ul>
+                                   
+                                      
+                                        
+                                        <li ><a ng-href="#/registrarse" ng-click="cerrarSesion()">Cerrar Sesion</a></li>
+                                        
+                                      </ul>
+                                    </div>
+                                  </li>
+                                </ul>
+                  </li>
+               
+               
+               
+                <li><a ng-href="#/ver1">ver1</a></li>
+                <li><a href="#/firebase">firebase</a></li>
+                <li><a ng-href="#/ver2">ver2</a></li>
+                <li><a ng-href="#/parallax">parallax</a></li>
+                    <li class="no-padding">
+                               
+                                <ul class="collapsible collapsible-accordion">
+                                  <li>
+                                    <a class="collapsible-header">Dropdown<i class="mdi-navigation-arrow-drop-down"></i></a>
+                                    <div class="collapsible-body">
+                                      <ul>
+                                         <li><a ng-href="#/formulario">Formulario</a></li>
+                                        <li><a ng-href="#!">Second</a></li>
+                                        <li><a ng-href="#!">Third</a></li>
+                                        <li><a ng-href="#!">Fourth</a></li>
+                                      </ul>
+                                    </div>
+                                  </li>
+                                </ul>
+                  </li>
+
+                    <li class="no-padding">
+                                <ul class="collapsible collapsible-accordion">
+                                  <li>
+                                    <a class="collapsible-header">Otro<i class="mdi-navigation-arrow-drop-down"></i></a>
+                                    <div class="collapsible-body">
+                                      <ul>
+                                        <li><a ng-href="#/formulario">Formulario</a></li>
+                                        <li><a ng-href="#!">Second</a></li>
+                                        <li><a ng-href="#!">Third</a></li>
+                                        <li><a ng-href="#!">Fourth</a></li>
+                                      </ul>
+                                    </div>
+                                  </li>
+                                </ul>
+                  </li>
+                    
+                  
+                  
+                      
+      </ul>
+    
+    
+<!--    Fin de la parte izquierda-->
+    
+<!--    Nav de arriba-->
+    
+    
+    <ul class="right hide-on-med-and-down">
+         <li><a ng-href="#/ver1">ver1<span class="new badge">4 Msg</span></a></li>
+         <li><a ng-href="#/ver2">ver2</a></li>
+          <li><a ng-href="#/parallax">parallax</a></li>
+       
+         <li><a class="dropdown-button1" href="#!" data-activates="desplegable">Desplegable<i class="mdi-navigation-arrow-drop-down right"></i></a></li>
+                  <ul id='desplegable' class='dropdown-content'>
+                    <li><a ng-href="#!">First</a></li>
+                    <li><a ng-href="#!">Second</a></li>
+                    
+                  </ul>   
+                  
+           <li>
+                
+                
+                
+                <!--Ejemplo de las etiquetas ng-show y ng-hide.. increible la manera facil de mane-->
+                <a  ng-show="sesionIniciada()" class="dropdown-button1" href="#!" data-activates="dropdown2">{{usuarioActual.profile.nombre}}<i class="mdi-navigation-arrow-drop-down right"></i></a>
+                
+                 <a ng-hide="sesionIniciada()" class="dropdown-button1" href="#!" data-activates="dropdown2">Usuarios<i class="mdi-navigation-arrow-drop-down right"></i></a>
+                 
+                 </li>
+                  <ul id='dropdown2' class='dropdown-content'>
+                    <li  ng-hide="sesionIniciada()"><a ng-href="#/entrar">Iniciar Sesion</a></li>
+                    <li  ng-hide="sesionIniciada()"><a ng-href="#/registrarse">Registrarse</a></li>
+                   <li ng-show="sesionIniciada()" ><a ng-href="#/registrarse" ng-click="cerrarSesion()">Cerrar Sesion</a></li>
+                  </ul>               
+      
+      
+      </ul>
+               
+               
+               
+               
+                <!-- boton de la izquierda-->
+                <a href="#" data-activates="nav-mobile" class="button-collapse">
+                  <i class="material-icons">menu</i>
+                 </a>
+      
+    </div>
+  </nav>   
+    </div><!--Fin de la cabezera  nav-->
+
+ <div class="container">
+  	<div ng-view></div>
+
+ </div><!--Fin del container-->
+
+
+<!--     Controlador del dispositivo cuando está listo Ready-->
+<div class="app"  ng-controller="cordovaCtrl">
+           
+            <div id="verdispositivo" class="blink">
+               
+             
+<!--                <p class="event escuchando">No está listo</p>-->
+                
+                 <p class="event escuchando">No esta listo</p>
+                <p class="event recibido"  id="geolocation">El dispositivo esta listo</p>
+            </div>
+        </div>
+   
+  <!--  Scripts-->
+<!--  OJO Aquí  Para crear la función de  Phonegap Buil hay que sustituir cordova por phonegap y-->
+<!--  para hacer las prubas hay que cambiar por cordova-->
+  <script type="text/javascript" src="cordova.js"></script>
+ 
+<!--  Ojo con  la libreria jquery-- tiene que ir antes que la de angular-->
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<!--    <script src="https://code.angularjs.org/1.4.8/angular-animate.min.js"></script>-->
+    <script src="https://code.angularjs.org/1.4.8/angular-resource.min.js"></script>
+    <script src="https://code.angularjs.org/1.4.8/angular-route.min.js"></script>
+  
+  
+  
+  
+   
+    <script src="https://cdn.firebase.com/js/client/2.2.4/firebase.js"></script>
+    <script src="https://cdn.firebase.com/libs/angularfire/1.1.3/angularfire.min.js"></script>
+ 
+    
+ <!--   <script src=" https://code.angularjs.org/1.5.0-rc.2/angular-animate.min.js "></script> -->
+  
+   
+  
+     <script src="js/materialize.js"></script>
+   <script src="js/app.js"></script>
+   <!--Factory-->
+   <script src="js/servicios/factory.js"></script>
+   <script src="js/servicios/autentificacion.js"></script>
+   
+   
+<!--   Controladores-->
+  <script src="js/controladores/controlador.principal.js"></script>
+   <script src="js/controladores/controlador.vista1Ctrl.js"></script>
+   <script src="js/controladores/controlador.vista2Ctrl.js"></script>
+    <script src="js/controladores/controlador.formulario.js"></script>
+    <script src="js/controladores/controlador.firebase.js"></script>
+    <script src="js/controladores/controlador.autentificacionUsuario.js"></script>
+    <script src="js/controladores/controlador.nav.js"></script>
+    <script src="js/controladores/controlador.main.js"></script>
+<script src="js/controladores/controlador.parallax.js"></script>
+  
+  <script src="js/init.js"></script>
+   
+  <script type="text/javascript">
+      
+      app.controller("cordovaCtrl",["$scope","cordova2",function($scope,cordova2) {
+         //cordova2.initialize();
+            //$scope.cordova= cordova2.dedo;
+         
+         //$scope.posicion= cordova2.dedo;
+           var latitude="hol";
+            $scope.latitude=latitude;
+          
+          
+           document.addEventListener('deviceready',dispositivolisto, false);
+           function dispositivolisto(){
+               
+                 var parentElement = document.getElementById("verdispositivo");
+        var listeningElement = parentElement.querySelector('.escuchando');
+        var receivedElement = parentElement.querySelector('.recibido');
+
+        listeningElement.setAttribute('style', 'display:none;');
+        receivedElement.setAttribute('style', 'display:block;');
+              
+               
+               
+               
+               
+               
+               var watchID=null; 
+               
+               
+               
+
+                            if(watchID == null){
+
+                                    var options = { frequency: 3000, maximumAge: 5000, timeout: 5000, enableHighAccuracy: true };
+                                    //watchPositio---Observa los cambios en la actual geolocalización del dispositivo.
+                                    watchID = navigator.geolocation.watchPosition(function(position){
+                                                 $("#idioma").val(position.coords.latitude);
+
+
+                                /*        
+                                        var element = document.getElementById('geolocation');
+                                         element.innerHTML = 'Latitude: '  + position.coords.latitude      + '<br />' +
+                                                              'Longitude: ' + position.coords.longitude     + '<br />' +
+                                                               '<hr />'      + element.innerHTML;*/
+
+
+                                    }, fallo, options);
+
+
+
+                                                  };
+
+               
+               
+               
+    
+	      $scope.latitude=latitude;
+             
+	
+	
+	                               };
+               
+               
+               
+               
+     
+var fallo = function(error) {
+    
+    var element = document.getElementById('geolocation');
+    element.innerHTML ="El codigo del error es" + error.code+"<br> Error mesage es" + error.message;
+              if (error.code=="TIMEOUT"){
+                 alert("Enciende tu gps");
+
+                            };
+             };        
+
+          
+  
+}]);
+      
+            
+        </script>
+  </body>
+</html>
