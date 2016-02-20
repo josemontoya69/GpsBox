@@ -1,0 +1,62 @@
+
+
+
+
+  <ul class="collapsible popout" data-collapsible="accordion">
+    <li  ng-repeat="mesage in mesages" >
+      <div class="collapsible-header"><i class="material-icons">filter_drama</i>{{ mesage.nombre }}</div>
+        <div class="collapsible-body">
+                      <p>{{ mesage.texto }}</p>
+                            
+                      <p><button ng-click="mesages.$remove(mesage)">Borrar mensage</button></p>
+                      
+                      <p>Id del correo es {{ mesage.$id }}</p>
+                      <p>modificar nombre
+                        <input type="text" ng-model="mesage.nombre" ng-change="mesages.$save(mesage)"/>
+                      </p>
+                      
+                      <p  id="volver">volver</p>
+        </div>
+    </li>
+
+  </ul>
+<br>
+<h5>Añadir a la lista (Firebase)</h5>
+ <form ng-submit="addMensage()">
+   <input type="text" ng-model="nombre" placeholder="nombre">
+    <input type="text" ng-model="message" placeholder="mensage">
+    
+  
+        <div class="input-field col s12">
+          <input id="email" type="email" class="validate" ng-model="email">
+          <label for="email" data-error="wrong" data-success="right">Email</label>
+        </div>
+   
+
+    
+    
+    
+    
+    
+    <input type="submit" value="Add Mensage" class="waves-effect waves-light btn">
+  </form>
+
+
+
+
+
+<script>
+
+ $(document).ready(function(){
+    $('.collapsible').collapsible({
+      accordion : false // A setting that changes the collapsible behavior to expandable instead of the default accordion style
+    });
+     
+     
+     //$('#volver').onclick(function(){})
+     
+     
+  });
+      
+
+</script>

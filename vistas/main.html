@@ -1,0 +1,51 @@
+ <p>hOLA QUE TAL  </p>
+ <div>{{latitud}}</div>
+<div>{{lati}}</div>
+
+<input type="button" id="encedergps"  value="encendergps" ng-click="encendergps()">
+
+<input type="button"  value="apagargps" ng-click="apagargps()">
+<!--  Boton flotante posicion absoluta-->
+  
+  
+  <div class="fixed-action-btn " style="bottom: 45px; right: 24px;">
+    <a class="btn-floating btn-large red">
+      <i class="material-icons">add</i>
+    </a>
+    <ul>
+        <li><a class="btn-floating red"><i class="material-icons" onclick="cerrar()">search</i></a></li>
+     
+        <li><a class="btn-floating green"><i class="material-icons">remove</i></a></li>
+        <li><a class="btn-floating yellow darken-1"><i class="material-icons">refresh</i></a></li>
+      
+        <li><a class="btn-floating blue"><i class="material-icons">add</i></a></li>
+    </ul>
+  </div>
+<!--Fin del boton flotante posicion absoluta-->
+
+
+
+
+
+
+
+
+<script>
+    
+   function cerrar(){
+    
+      $('.fixed-action-btn').closeFAB();
+     
+     
+     
+ }   
+
+$(document).ready(function(){
+    
+
+
+
+
+});
+
+</script>

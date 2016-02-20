@@ -1,0 +1,52 @@
+<p>Soy el Formulario</p>
+
+
+
+<p>DatePicker</p>
+
+<input type="date" class="datepicker" ng-model="fecha" placeholder="Introduce la fecha">
+
+
+
+
+
+
+
+ 
+<script>
+
+   $(document).ready(function(){
+       
+       var dias=[ 'D', 'L', 'M', 'X', 'J', 'V', 'S' ];
+       
+        $('.datepicker').pickadate({
+   selectMonths: true,//Creates a dropdown to control month
+selectYears: 15,//Creates a dropdown of 15 years to control year
+//The title label to use for the month nav buttons
+labelMonthNext: 'Próximo Més',
+labelMonthPrev: 'Més Anterior',
+//The title label to use for the dropdown selectors
+labelMonthSelect: 'Selecione un Més',
+labelYearSelect: 'Selecione un Año',
+//Months and weekdays
+monthsFull: [ 'Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Deziembre' ],
+monthsShort: [ 'Jun', 'Fev', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic' ],
+weekdaysFull: [ 'Domingo', 'Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes', 'Sábado' ],
+weekdaysShort: [ 'Dom', 'Lun', 'Mar', 'Mier', 'Juev', 'Vier', 'Sab' ],
+//Materialize modified
+weekdaysLetter: dias ,
+//Today and clear
+today: 'Hoy',
+clear: 'Limpiar',
+close: 'Cerrar',
+//The format to show on the `input` element
+format: 'd/mm/yyyy'
+
+  });
+            
+          
+
+    });
+
+
+</script>
